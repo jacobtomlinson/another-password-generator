@@ -39,9 +39,9 @@ var lesscomplexString = function(len){
 
 var xkcdString = function(len){
   // Decide how many words to use in the passphrase
-  var minWords = Math.floor(len / 10);
+  var minWords = Math.ceil(len / 10);
   var maxWords = Math.floor(len / 4);
-  var words = Math.floor(Math.random() * (maxWords)) + minWords;
+  var words = Math.floor(Math.random() * (maxWords - minWords)) + minWords;
   if (words < 2){ words=2; }
 
   // Decide on all word length
@@ -55,12 +55,19 @@ var xkcdString = function(len){
     if (i == words - 1){
       thiswordLength += lastwordLength;
     }
-    if (i % 2 == 0) {
-      output += randomArrayItem(adjectives.filter(filterWordLength, thiswordLength))
-    } else {
+    if (i % 2 == 1 || (words % 2 && i == words - 1)) {
       output += randomArrayItem(nouns.filter(filterWordLength, thiswordLength))
+    } else {
+      output += randomArrayItem(adjectives.filter(filterWordLength, thiswordLength))
     }
   }
+  console.log({"length": output.length,
+              "calulated length": words * wordLength + lastwordLength,
+              "wordlength": wordLength,
+              "lastwordLength": lastwordLength,
+              "minWords": minWords,
+              "maxWords": maxWords,
+              "words": words})
   return output;
 }
 

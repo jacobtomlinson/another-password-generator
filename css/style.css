@@ -6,11 +6,11 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 
 /* Links */
-a,
+/*a,
 a:focus,
 a:hover {
   color: #fff;
-}
+}*/
 
 /* Custom default button */
 .btn-default,
@@ -118,7 +118,6 @@ body {
   font-family: 'Source Code Pro', monospace;
   font-size: 48px;
   height 1.4em;
-  width: 16em;
   text-align: center;
 
 }
@@ -129,8 +128,7 @@ body {
  */
 
 .mastfoot {
-  color: #999; /* IE8 proofing */
-  color: rgba(255,255,255,.5);
+  color: #000; /* IE8 proofing */
 }
 
 
